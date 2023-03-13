@@ -1,0 +1,12 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  background-color: #212e3e;
+  justify-content: space-between;
+}
+
+.navbar img {
+  width: 5em;
+  margin: 0 0;
+  padding: .5em 2em;
+}

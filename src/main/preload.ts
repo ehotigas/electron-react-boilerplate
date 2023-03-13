@@ -1,9 +1,11 @@
 // Disable no-unused-vars, broken for spread args
 /* eslint no-unused-vars: off */
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
+import * as childProc from 'child_process';
+import { save } from './util';
+
 
 export type Channels = 'ipc-example';
-
 const electronHandler = {
   ipcRenderer: {
     sendMessage(channel: Channels, args: unknown[]) {
@@ -22,8 +24,11 @@ const electronHandler = {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },
+  user: require('os').userInfo().username,
+  open_url: (url: string) => { childProc.exec(`open -a "Google Chrome" ${url}`, () => {  }) },
+  save_csv: (out_path: string, file_name: string, data: Array<Object>, columns: string[]) => { save(out_path, file_name, data, columns) }
 };
 
-contextBridge.exposeInMainWorld('electron', electronHandler);
+contextBridge.exposeInMainWorld('api', electronHandler);
 
 export type ElectronHandler = typeof electronHandler;
