@@ -1,0 +1,7 @@
+.order {
+  vertical-align: middle;
+  display: table-cell;
+  margin-top: 1.3em;
+  width: .7em;
+  cursor: pointer;
+}

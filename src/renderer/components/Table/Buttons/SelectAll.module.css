@@ -1,0 +1,22 @@
+.selectAll {
+  margin-left: 3px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  float: left;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+
+.box {
+  float: left;
+  margin-left: 9px;
+}
+
+.box:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,43 @@
+.container {
+  max-width: 300px;
+  width: 150px;
+  height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: inherit;
+  text-align: left;
+  border: #0000005b 1px solid;
+  margin-top: 40px;
+  margin-left: -2em;
+  border-radius: 5px;
+  overflow-x: hidden;
+}
+
+.exit {
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.exit:hover {
+  color: #4f2395;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #212e3e;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}

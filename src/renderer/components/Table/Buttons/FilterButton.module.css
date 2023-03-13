@@ -1,0 +1,24 @@
+.row {
+  border-radius: 5px;
+  max-height: 50px;
+  margin-bottom: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+  display: flex;
+}
+
+.checkbox {
+  border-radius: 200px;
+  float: left;
+}
+
+.checkbox:hover {
+  cursor: pointer;
+}
+
+.text {
+  margin-top: 5px;
+  margin-left: 3px;
+  width: 80%;
+  float: left;
+}

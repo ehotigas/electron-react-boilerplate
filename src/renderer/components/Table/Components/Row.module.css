@@ -1,0 +1,34 @@
+.row {
+  background-color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  color: #0b0b0b;
+  float: left;
+  width: 100%;
+}
+
+.row_column {
+  width: 95px;
+  height: 100px;
+  max-width: 95px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 11px;
+  float: left;
+  display: table;
+}
+
+
+.row_column p {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.row:hover {
+  color:  #0675fd;
+  cursor: pointer;
+}
+
+.row_impar {
+  background-color: #f2f3f3
+}

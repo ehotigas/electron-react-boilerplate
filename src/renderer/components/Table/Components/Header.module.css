@@ -1,0 +1,8 @@
+.header {
+  background-color:  #7e30ff;
+  color: #fff;
+  float: left;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}

@@ -1,0 +1,14 @@
+.filter {
+  width: 80%;
+  border-radius: 15px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: #29282b;
+  border: none;
+}
+
+.filter:focus {
+  outline: none;
+}
