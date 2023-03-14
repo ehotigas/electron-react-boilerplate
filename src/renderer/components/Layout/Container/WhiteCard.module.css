@@ -1,0 +1,75 @@
+.white_card {
+  background-color: #fff;
+  width: 99%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-bottom: .45em;
+  margin-left: .5%;
+}
+
+.title {
+  height: 4em;
+  margin-top: 0;
+  vertical-align: middle;
+
+}
+
+.title h1 {
+  vertical-align: middle;
+}
+
+.infos {
+  background-color: #fff;
+  display: flex;
+  float: left;
+}
+
+
+.descr {
+  background-color: #fff;
+  display: flex;
+  float: left;
+  height: 7em;
+  overflow-y: auto;
+}
+
+
+/* width */
+.descr::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.descr::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* Handle */
+.descr::-webkit-scrollbar-thumb {
+  background: #212e3e;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.descr::-webkit-scrollbar-thumb:hover {
+  background: #212e3e;
+}
+
+
+.consumo {
+  width: 99%;
+  height: 20em;
+  margin-left: .5%;
+  float: left;
+  display: flex;
+}
+/* soma = 98,5 */
+.consumo_chart {
+  width: 99%;
+  height: 30em;
+  margin-left: .5%;
+  display: flex;
+  float: left;
+}

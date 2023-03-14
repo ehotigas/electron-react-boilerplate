@@ -1,0 +1,89 @@
+.notasServico {
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 0;
+  background: #fff;
+  margin-top: 0;
+  transition: 0.5s;
+  position: absolute;
+  position: fixed;
+  float: right;
+}
+
+
+.close {
+  cursor: pointer;
+  float: right;
+  margin-top: 1em;
+  margin-right: 1em;
+  font-size: 22px;
+}
+
+.close:hover {
+  color: #7e30ff;
+}
+
+.notas {
+  width: 96%;
+  margin-left: 2%;
+  text-align: left;
+  float: left;
+  height: 80%;
+  margin-top: 5%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.nota {
+  text-align: left;
+  font-weight: bold;
+  margin-left: 6%;
+  margin-top: 3px;
+  color: #ff0000;
+  font-size: 14px;
+}
+
+.descr {
+  width: 0;
+  visibility: hidden;
+  display: none!important;
+}
+
+.nota:hover {
+  cursor: pointer;
+}
+
+.title {
+  margin-left: 2%;
+}
+
+.legenda {
+  float: left;
+  margin-left: 4%;
+  text-align: left;
+  margin-top: 1%;
+}
+
+/* width */
+.notas::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.notas::-webkit-scrollbar-track {
+  background: #f5f3f3;
+  border-radius: 10px;
+}
+
+/* Handle */
+.notas::-webkit-scrollbar-thumb {
+  background: #29282b;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.notas::-webkit-scrollbar-thumb:hover {
+  background: #29282b;
+}

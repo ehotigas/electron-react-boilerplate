@@ -1,8 +1,11 @@
-export interface CSV {
-    header: any,
-    dados: Array<any>
+export type ColumnType = {
+    [key: string]: any
 }
 
+export interface CSV {
+    header: ColumnType,
+    dados: Array<any>
+}
 
 export const filter = (
     data: CSV,

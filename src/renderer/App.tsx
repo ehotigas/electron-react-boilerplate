@@ -22,10 +22,10 @@ const socket = io("http://localhost:50001", { transports : ['websocket'] });
 
 function App() {
   const empty_csv: CSV = { header: {  }, dados: [] }
-  const [ reclamacoes, setReclamacoes ] = useState(empty_csv);
-  const [ notasServico, setNotasServico ] = useState(empty_csv);
-  const [ medicao, setMedicao ] = useState(empty_csv);
-  const [ homeData, setHomeData ] = useState(reclamacoes);
+  const [ reclamacoes, setReclamacoes ] = useState<CSV>(empty_csv);
+  const [ notasServico, setNotasServico ] = useState<CSV>(empty_csv);
+  const [ medicao, setMedicao ] = useState<CSV>(empty_csv);
+  const [ homeData, setHomeData ] = useState<CSV>(reclamacoes);
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -35,7 +35,6 @@ function App() {
       setReclamacoes(data.reclamacoes);
       setNotasServico(data.notas_servico);
       setMedicao(data.medicao);
-      // console.log(data.reclamacoes)
 
       setHomeData(select(getDistinct(data.reclamacoes, 'Nota'), 'id', 'Nota', 'Concl Desej', 'TipoNota', 'txt code sub', 'Instalação', 'FlagGD',
                   'Tipo Tarifa', 'ClasseTxt', 'Subgrupo', 'Modalidade', 'Empresa', 'User'));
@@ -47,11 +46,6 @@ function App() {
     });
   }, []);
 
-  // console.log(reclamacoes);
-  // console.log(notasServico);
-
-  // let MedicaoFiltrada = filter(medicao, 'Instalacao', x => x === "0075215951")
-  // console.log(MedicaoFiltrada);
   return (
     <Router>
       <NavBar />
