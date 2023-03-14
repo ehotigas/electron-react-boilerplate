@@ -1,7 +1,6 @@
 // Disable no-unused-vars, broken for spread args
 /* eslint no-unused-vars: off */
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
-import * as childProc from 'child_process';
 import { save } from './util';
 
 export type Channels = 'ipc-example';
@@ -24,7 +23,7 @@ const electronHandler = {
     },
   },
   user: require('os').userInfo().username,
-  open_url: (url: string | undefined) => { require('child_process').exec(`open -a "Google Chrome" ${url}`, () => {  }) },
+  open_url: (url: string | undefined) => { require('open')(url) },
   save_csv: (out_path: string, file_name: string, data: Array<Object>, columns: string[]) => { save(out_path, file_name, data, columns) }
 };
 
