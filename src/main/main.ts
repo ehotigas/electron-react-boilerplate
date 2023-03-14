@@ -1,5 +1,4 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
-// export const childProc = require('child_process');
 import { autoUpdater } from 'electron-updater';
 import { resolveHtmlPath } from './util';
 import MenuBuilder from './menu';
@@ -14,23 +13,6 @@ class AppUpdater {
   }
 }
 
-// interface userInfo {
-//   uid: Number,
-//   gid: Number,
-//   username: String,
-//   homedir: String,
-// }
-
-// export const getUserInfo = (): userInfo => {
-//   const os_user_infos = require('os').userInfo().username;
-//   let user_infos: userInfo = {
-//     uid: os_user_infos.uid,
-//     gid: os_user_infos.gid,
-//     username: os_user_infos.username,
-//     homedir: os_user_infos.homedir
-//   };
-//   return user_infos;
-// }
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -81,7 +63,7 @@ const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 728,
-    icon: getAssetPath('icon.png'),
+    icon: getAssetPath('edp.ico'),
     webPreferences: {
       nodeIntegration: true,
       preload: app.isPackaged
