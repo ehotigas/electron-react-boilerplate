@@ -26,7 +26,7 @@ export const SelectAllButton = (
   const handleClickButton = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
         reload(originalData);
-        setFilteredRows(getRows(dados.dados, column));
+        setFilteredRows(getRows(originalData.dados, column));
     }
     else {
         reload({header: originalData.header, dados: []});

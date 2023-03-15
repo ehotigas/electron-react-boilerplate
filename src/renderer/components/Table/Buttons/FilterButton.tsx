@@ -25,7 +25,7 @@ export const FilterButton = (
         setFuncs
     }: FilterButtonProps
 ) => {
-    const [ checked, setChecked ] = useState(filteredRows?.includes(element));
+    const [ checked, setChecked ] = useState<boolean>(filteredRows?.includes(element));
     useEffect(() => {
         let arr: Array<Function> = funcs;
         arr.push(setChecked);
@@ -33,21 +33,20 @@ export const FilterButton = (
     }, []);
 
     const handleClickButton = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let arr = filteredRows;
-        if (!event.target.checked) arr.splice(arr.indexOf(element), 1);
-        else arr.push(element);
+        let arr: any[] = filteredRows;
+        if (!event.target.checked && arr.includes(element)) arr.splice(arr.indexOf(element), 1);
+        else if (event.target.checked && !arr.includes(element)) arr.push(element);
 
         setFilteredRows(arr);
         setChecked(filteredRows?.includes(element));
         reload(filter(dados, column, (row) => filteredRows.includes(row)));
     }
-
     return (
         <div className={styles.row}>
             <input
                 className={styles.checkbox}
                 type="checkbox"
-                defaultChecked={filteredRows?.includes(element)}
+                defaultChecked={checked}
                 checked={checked}
                 onChange={(event) => { handleClickButton(event); }}
             />

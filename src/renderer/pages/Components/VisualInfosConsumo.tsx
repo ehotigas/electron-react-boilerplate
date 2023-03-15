@@ -24,16 +24,24 @@ const meses: NumberToMonth = {
 }
 
 
-const formatAnomes = (anomes: string): string => `${meses[anomes.substring(4, 2)]}/${anomes.substring(0, 4)}`;
+const formatAnomes = (anomes: string): string => `${meses[anomes.substring(4, 6)]}/${anomes.substring(0, 4)}`;
 
 
 const getConsumoData = (data: CSV, columns: string[]): string[][] => {
-  let ret = [['Data', ...columns]], order: Array<any> = sort(data, 'anomes', 'asc', 'number').dados;
+  let ret: string[][] = [], temp_ret: string[][] = [['Data', ...columns]], order: Array<any> = sort(data, 'anomes', 'asc', 'number').dados;
+
   order.forEach((element: any) => {
       let arr: any = [];
       columns.forEach(column => { arr.push(parseFloat(element[column])) });
-      ret.push([ formatAnomes(element.anomes), ...arr ])
+      temp_ret.push([ formatAnomes(element.anomes), ...arr ])
   });
+
+  const ret_contains = (element: string): boolean => {
+    for (let i = 0; i < ret.length; i++) if (ret[i][0] == element) return true;
+    return false;
+  }
+
+  temp_ret.forEach((element: any[]) => { if (!ret_contains(element[0])) ret.push(element); })
   return ret;
 }
 
@@ -56,9 +64,9 @@ export const VisualInfosConsumo = (
                         data={select(data, ...columns)}
                         dados={dados}
                         setDados={setDados}
-                        style={{ width: '99.5%', marginTop: '.7em' }}
-                        columnStyle={{ height: '40px', width: '87px', fontSize: '10px' }}
-                        rowStyle={{ height: '20px', width: '85px', fontSize: '10px' }}
+                        style={{ width: '99.5%', marginTop: '.7em', backgroundColor: '#f2f3f3' }}
+                        columnStyle={{ height: '40px', width: '6.5%', maxWidth: '6.5%', fontSize: '10px' }}
+                        rowStyle={{ height: '20px', width: '6.5%', maxWidth: '6.5%', fontSize: '10px' }}
                         bodyStyle={{ height: '15em' }}
                         colorStyle={{backgroundColor: "#212e3e"}}
                     />
