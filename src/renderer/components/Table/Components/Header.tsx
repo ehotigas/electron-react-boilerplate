@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, Key, SetStateAction } from 'react';
 import { CSV } from 'renderer/utils/CSV';
 import styles from './Header.module.css';
 import { Column } from './Column';
@@ -24,8 +24,9 @@ export const Header = (
     return (
         <div className={styles.header} style={{ backgroundColor: colorStyle?.backgroundColor }}>
             {
-            Object.keys(dados.header).map((item) =>
+            Object.keys(dados.header).map((item, id: Key) =>
                 <Column
+                    key={id}
                     item={item}
                     openFilter={openFilter}
                     dados={dados}

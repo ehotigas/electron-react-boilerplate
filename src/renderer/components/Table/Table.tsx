@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, Key, SetStateAction } from 'react';
 import { Header } from './Components/Header';
 import { CSV } from 'renderer/utils/CSV';
 import styles from './Table.module.css';
@@ -43,25 +43,27 @@ export const Table = (
         />
 
         <div className={`${styles.body} ${scroll && styles.scroll}`} style={bodyStyle}>
-            {dados.dados.map((element: any, index: number) => {
+            {dados.dados.map((element: any, index: Key) => {
                 let to = 'consumo';
                 if (element.FlagGD !== 'Sem GD') to = 'MMGD';
                 if (element['Subgrupo'])
                     to = String(element['Subgrupo']).includes('B') ? to : to + 'MT';
                 // console.log(element)
-                return link ? <Link to={to} state={element}>
+                return link ? <Link
+                                key={index}
+                                to={to}
+                                state={element}
+                              >
                                  <Row
-                                    key={index}
                                     object={element}
-                                    customClass={index % 2 !== 0 && 'row_impar'}
+                                    customClass={Number(index) % 2 !== 0 && 'row_impar'}
                                     style={rowStyle}
                                     colorStyle={colorStyle}
                                   />
                               </Link> :
                               <Row
-                                key={index}
                                 object={element}
-                                customClass={index % 2 !== 0 && 'row_impar'}
+                                customClass={Number(index) % 2 !== 0 && 'row_impar'}
                                 style={rowStyle}
                                 colorStyle={colorStyle}
                               />

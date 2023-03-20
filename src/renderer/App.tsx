@@ -16,7 +16,8 @@ import { io } from "socket.io-client";
 import './App.css';
 
 
-const socket = io("http://localhost:50001", { transports : ['websocket'] });
+// const socket = io("http://localhost:50001", { transports : ['websocket'] });
+const socket = io("http://172.20.71.6:50001", { transports : ['websocket'] });
 // const socket = io("http://10.161.248.71:50001", { transports : ['websocket'] });
 
 
